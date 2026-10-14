@@ -1,0 +1,22 @@
+body {
+  display: grid;
+  grid-template-columns: 2fr 3fr;
+  background-image: linear-gradient(to right, lightblue, white);
+  height: 100%;
+}
+input:user-valid {
+  background: lightgreen;
+}
+input:user-invalid {
+  background: salmon;
+}
+#welcome-text {
+  padding: 40%;
+  background-image: url("./assets/images/bg.png");
+}
+#account-form {
+  margin-top: 33%;
+  margin-bottom: 33%;
+  margin-left: 10%;
+  margin-right: 10%;
+}
