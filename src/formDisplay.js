@@ -28,6 +28,34 @@ class accountFormDisplay {
         this.#postalCodeError.textContent = "";
       };
     });
+    this.#passwordField.addEventListener("input", () => {
+      if(this.#passwordField.validity.tooShort) {
+        this.#passwordError.textContent = "password too short, min 5 chars"
+      } else if(this.#passwordField.validity.tooLong) {
+        this.#passwordError.textContent = "password too long, max 16 chars"
+      } else if(this.#passConfirmField.value != this.#passwordField.value) {
+        this.#passwordError.textContent = ""
+        this.#passConfirmField.setCustomValidity("passwords must match")
+        this.#passConfirmError.textContent = "passwords must match"
+      } else {
+        this.#passwordError.textContent = ""
+        this.#passConfirmField.setCustomValidity("")
+        this.#passConfirmError.textContent = ""
+      };
+    });
+    this.#passConfirmField.addEventListener("input", () => {
+      if(this.#passConfirmField.validity.tooShort) {
+        this.#passConfirmError.textContent = "password too short, min 5 chars"
+      } else if(this.#passConfirmField.validity.tooLong) {
+        this.#passConfirmError.textContent = "password too long, max 16 chars"
+      } else if(this.#passConfirmField.value != this.#passwordField.value) {
+        this.#passConfirmField.setCustomValidity("passwords must match")
+        this.#passConfirmError.textContent = "passwords must match"
+      } else {
+        this.#passConfirmField.setCustomValidity("")
+        this.#passConfirmError.textContent = ""
+      };
+    });
   };
   #formDisplay = document.createElement("fieldset");
   #emailField = document.createElement("input");
