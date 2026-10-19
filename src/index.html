@@ -1,25 +1,60 @@
 <html>
   <body>
-    <p id="welcome-text">Welcome</p>
+    <p 
+      id="welcomeText">
+      Welcome</p>
     <form novalidate>
-      <fieldset id="account-form">
-       <legend>New Account Information</legend>
+      <fieldset 
+        id="accountForm">
+        <legend>New Account Information</legend>
         <p>
-          <input type="email" name="email" placeholder="email">
+          <input
+            class="email" 
+            type="email" 
+            name="email" 
+            placeholder="email">
         </p>
+        <div class="emailError"></div>
         <p>
-          <input type="text" name="country" placeholder="country">
+          <input 
+            class="country"
+            type="text" 
+            name="country" 
+            placeholder="country">
         </p>
+        <div 
+          class="countryError"></div>
         <p>
-          <input type="number" name="postal-code" placeholder="postal code">
+          <input 
+            class="postalCode"
+            type="number" 
+            name="postalCode" 
+            placeholder="postal code" 
+            pattern="[0-9]{5}">
         </p>
+        <div 
+          class="postalCodeError"></div>
         <p>
-          <input type="password" name="pass" placeholder="password">
+          <input
+            class="password" 
+            type="password" 
+            name="pass" 
+            placeholder="password">
         </p>
+        <div 
+          class="passwordError"></div>
         <p>
-          <input type="password" name="pass-confirm" placeholder="confirm pass">
+          <input 
+            class="passConfirm" 
+            type="password" 
+            name="passConfirm" 
+            placeholder="confirm pass">
         </p>
-        <button>Submit</button>
+        <div 
+          class="passConfirmError"></div>
+        <button 
+          class="submitButton">
+          Submit</button>
       </fieldset>
     </form>
   </body>

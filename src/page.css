@@ -10,11 +10,11 @@ input:user-valid {
 input:user-invalid {
   background: salmon;
 }
-#welcome-text {
+#welcomeText {
   padding: 40%;
   background-image: url("./assets/images/bg.png");
 }
-#account-form {
+#accountForm {
   margin-top: 33%;
   margin-bottom: 33%;
   margin-left: 10%;
