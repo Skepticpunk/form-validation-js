@@ -19,5 +19,12 @@ class formData {
   set postalCode(newPostalCode) { this.#postalCode = newPostalCode };
   get password() { return this.#password };
   set password(newPassword) { this.#password = newPassword };
+  // functions
+  updateData(newEmail, newCountry, newPostalCode, newPassword) {
+    this.#email = newEmail;
+    this.#country = newCountry;
+    this.#postalCode = newPostalCode;
+    this.#password = newPassword;
+  };
 };
 export { formData };

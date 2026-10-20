@@ -1,6 +1,6 @@
 import { formData } from "./formData.js";
 class accountFormDisplay {
-  constructor(formDisplay, emailField, emailError, countryField, countryError, postalCodeField, postalCodeError, passwordField, passwordError, passConfirmField, passConfirmError, submitButton) {
+  constructor(formDisplay, emailField, emailError, countryField, countryError, postalCodeField, postalCodeError, passwordField, passwordError, passConfirmField, passConfirmError, submitButton, submitFeedback) {
     this.#formDisplay = formDisplay;
     this.#emailField = emailField;
     this.#emailError = emailError;
@@ -13,6 +13,7 @@ class accountFormDisplay {
     this.#passConfirmField = passConfirmField;
     this.#passConfirmError = passConfirmError;
     this.#submitButton = submitButton;
+    this.#submitFeedback = submitFeedback;
     this.#formData = new formData();
     this.#emailField.addEventListener("input", () => {
       if (this.#emailField.validity.typeMismatch) {
@@ -55,6 +56,14 @@ class accountFormDisplay {
         this.#passConfirmField.setCustomValidity("")
         this.#passConfirmError.textContent = ""
       };
+      this.#submitButton.addEventListener("click", (event) => {
+        if(this.#formDisplay.checkValidity()) {
+          this.#formData.updateData(this.#emailField.value, this.#countryField.value, this.#postalCodeField.value, this.#passwordField.value)
+          this.#submitFeedback.textContent = "Yippee! You did it!";
+        } else {
+          this.#submitFeedback.textContent = "Something's wrong. Go fix it."
+        }
+      })
     });
   };
   #formDisplay = document.createElement("fieldset");
@@ -69,6 +78,7 @@ class accountFormDisplay {
   #passConfirmField = document.createElement("input");
   #passConfirmError = document.createElement("div");
   #submitButton = document.createElement("button");
+  #submitFeedback = document.createElement("div");
   #formData;
   // getters/setters
   get formDisplay() { return this.#formDisplay };
@@ -84,11 +94,13 @@ class accountFormDisplay {
   get passConfirmField() { return this.#passConfirmField };
   set passConfirmField(newPassConfirmField) { this.#passConfirmField = newPassConfirmField };
   // functions
-  validateInput(input, inputType) {
-    switch (inputType) {
-      case "email":
-        break
-    }
-  }
+  validateInput() {
+    if(this.#formDisplay.checkValidity()) {
+      this.#formData.updateData(this.#emailField.value, this.#countryField.value, this.#postalCodeField.value, this.#passwordField.value)
+      this.#submitFeedback.textContent = "Yippee! You did it!";
+    } else {
+      this.#submitFeedback.textContent = "Something's wrong. Go fix it."
+    };
+  };
 };
 export { accountFormDisplay };

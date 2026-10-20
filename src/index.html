@@ -3,9 +3,8 @@
     <p 
       id="welcomeText">
       Welcome</p>
-    <form novalidate>
-      <fieldset 
-        id="accountForm">
+    <form id="accountForm" novalidate onsubmit="event.preventDefault();">
+      <fieldset>
         <legend>New Account Information</legend>
         <p>
           <input
@@ -60,6 +59,8 @@
         <button 
           class="submitButton">
           Submit</button>
+        <div
+          class="submitFeedback"></div>
       </fieldset>
     </form>
   </body>
